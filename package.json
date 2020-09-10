@@ -34,7 +34,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hakt0r/node-tagscale"
+    "url": "https://github.com/jrunge/node-tagscale"
   },
   "keywords": [
     "upscaledb",
@@ -47,6 +47,6 @@
   "author": "Sebastian Glaser <anx@ulzq.de>",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/hakt0r/node-tagscale/issues"
+    "url": "https://github.com/jrunge/node-tagscale/issues"
   }
 }

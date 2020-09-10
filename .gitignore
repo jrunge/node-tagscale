@@ -12,3 +12,4 @@ RELEASE
 test*.db
 test*.db.*
 prebuilds/
+.DS_Store
