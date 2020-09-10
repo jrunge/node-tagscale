@@ -16,15 +16,28 @@
   "cflags!": [ "-fno-exceptions" ],
   "cflags_cc!": [ "-fno-exceptions" ],
   "libraries": [
-    "-L <!(dirname $(find /usr/lib -name libz.a | head -n1))",
-    "-lboost_thread", "-lpthread", "-lboost_filesystem", "-lz", "-ldl",
-    "-L ../upscaledb/3rdparty/streamvbyte/libstreamvbyte.la",
-    "-L ../upscaledb/3rdparty/murmurhash3/libmurmurhash3.la",
-    "-L ../upscaledb/3rdparty/simdcomp/libsimdcomp.la",
-    "-L ../upscaledb/3rdparty/varint/libvarint.la",
-    "-L ../upscaledb/3rdparty/liblzf/liblzf.la",
-    "-L ../upscaledb/3rdparty/for/libfor.la",
+    "-L ../upscaledb/3rdparty/murmurhash3",
+    "-L ../upscaledb/3rdparty/simdcomp",
+    "-L ../upscaledb/3rdparty/liblzf",
     "../upscaledb/dest/lib/libupscaledb.a" ],
+  'conditions': [
+      ['OS=="mac"', {
+        'ldflags': [
+          "-lboost_thread-mt", "-lpthread", "-lboost_filesystem", "-lz", "-ldl",
+        ],
+        "libraries": [
+          "-L <!(dirname $(find /usr/lib -name libz.dylib | head -n1))",
+        ],
+      }],
+      ['OS=="linux"', {
+        'ldflags': [
+          "-lboost_thread", "-lpthread", "-lboost_filesystem", "-lz", "-ldl",
+        ],
+        "libraries": [
+          "-L <!(dirname $(find /usr/lib -name libz.a | head -n1))",
+        ],
+      }],
+  ],
   "include_dirs" : [ 'upscaledb/include', "<!@(node -p \"require('node-addon-api').include\")" ],
   "defines": [ "NAPI_DISABLE_CPP_EXCEPTIONS" ]
 }]}

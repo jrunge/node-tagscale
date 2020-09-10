@@ -4,7 +4,7 @@ const opts = {stdio:'inherit'};
 
 function build(){ cp.execSync(`
   npm list mocha prebuild node-gyp node-addon-api 2>/dev/null || npm i --no-save mocha prebuild node-gyp node-addon-api;
-  nodejs configure.js;
+  node configure.js;
   npm run build;
   [ -f KEEP_FILES ] || {
     npm prune --production;

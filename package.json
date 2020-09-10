@@ -2,7 +2,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "build": "node-gyp build && prebuild --all -r napi --strip",
+    "build": "node-gyp configure && node-gyp build && prebuild --all -r napi --strip",
     "install": "node install.js",
     "fresh": "npm i --no-save node-addon-api node-gyp prebuild mocha; npm run build"
   },
@@ -21,7 +21,7 @@
   "gypfile": true,
   "name": "tagscale",
   "description": "nodeJS key-value-store with secondary indices (tags) based on upscaledb",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "directories": {
     "test": "test"
   },

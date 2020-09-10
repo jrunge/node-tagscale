@@ -60,12 +60,11 @@ cd upscaledb;
     --disable-java --disable-encryption --disable-remote
 
   [ -f ./src/libupscaledb.la ] || {
-    make --trace -C 3rdparty $proc;
-    make --trace -C src      $proc; }
+    make -C 3rdparty $proc;
+    make -C src      $proc; }
 
   [ -f ./dest/lib/libupscaledb.a  ] ||
-    make --trace -C src install $proc;
+    make -C src install $proc;
 
 cd ..;
-node-gyp configure;
 `],{stdio:'inherit'})
